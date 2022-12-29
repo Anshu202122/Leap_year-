@@ -1,0 +1,42 @@
+x=0
+print("Enter the START date in DD-MM-YYYY format")
+a,b,c=input().split("-")
+strt_date=a+"-"+b+"-"+c
+
+a=int(a)
+b=int(b)
+
+
+print("Enter the END date in DD-MM-YYYY format")
+p,q,r=input().split("-")
+end_date=p+"-"+q+"-"+r
+
+p=int(p)
+q=int(q)
+
+if a>31 or a<1 or b>12 or b<1 or len(c)!=4 or p>31 or p<1 or q>12 or q<1 or len(r)!=4:
+    x=1
+
+
+l1=[]
+l2=[]
+
+c=int(c)
+r=int(r)
+
+
+if c > r or x==1:
+  print ("ENTER VALID DATE")
+else:
+    while c <= r:
+        if c % 4 == 0 and c % 100 != 0:
+            l1.append(c)
+        elif c % 100 == 0 and c % 400 == 0:
+            l1.append(c)
+        else:
+            l2.append(c)
+        c += 1
+
+    print(f"The list of Leap years between {strt_date} and {end_date} is: ",l1)
+    
+    print(f"The list of NON-Leap years between {strt_date} and {end_date} is: ",l2)
